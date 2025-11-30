@@ -23,7 +23,7 @@ from utilis import robustness
 
 if __name__ == '__main__':
     # load test data
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+    transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.1307,), (0.3081,))])
     test_data = torchvision.datasets.MNIST(root='./data', train=False, transform=transform, download=True)
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=64, shuffle=False)
 

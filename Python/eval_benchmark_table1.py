@@ -23,7 +23,7 @@ net.to(device)
 net.load_state_dict(torch.load('./moudle/lenet5_mnist.pth',map_location=device))
 net.eval()
 # load data
-transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
 test_data = torchvision.datasets.MNIST(root='./data', train=False, transform=transform, download=True)
 test_loader = torch.utils.data.DataLoader(test_data, batch_size=1, shuffle=False)
 # 对于整个数据集计算扰动的大小

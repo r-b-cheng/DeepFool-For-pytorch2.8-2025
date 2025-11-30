@@ -15,7 +15,7 @@ from moudle import LeNet
 from utilis import evaluate_the_robustness
 
 def finetune_with_proportion(proportion, epochs=5, base_lr=0.001, momentum=0.9, batch_size=64):
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
     train_data = torchvision.datasets.MNIST(root='./data', train=True, transform=transform, download=True)
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
     test_data = torchvision.datasets.MNIST(root='./data', train=False, transform=transform, download=True)

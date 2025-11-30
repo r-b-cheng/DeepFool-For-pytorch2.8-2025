@@ -23,7 +23,7 @@ from utilis import robustness, adversarial_sample_generator
 
 if __name__ == '__main__':
     # load train data
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
     train_data = torchvision.datasets.MNIST(root='./data', train=True, transform=transform, download=True)
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=64, shuffle=True)
     # load test data
