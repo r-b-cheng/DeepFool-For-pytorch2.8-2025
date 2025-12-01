@@ -36,7 +36,7 @@ class LeNet5(nn.Module):
         return x
 if __name__ == '__main__':
     # 定义数据变换和加载MNIST数据集
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+    transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.1307,), (0.3081,))])
 
     # 训练数据集
     train_dataset = torchvision.datasets.MNIST(root='../data', train=True, transform=transform, download=True)
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     optimizer = optim.Adam(net.parameters(), lr=0.001)  # Adam优化器，学习率为0.001
 
     # 训练循环
-    for epoch in range(20):  # 可以根据需要调整训练的轮数
+    for epoch in range(25):  # 可以根据需要调整训练的轮数
         running_loss = 0.0
         for i, data in enumerate(train_loader, 0):
             inputs, labels = data
@@ -86,4 +86,4 @@ if __name__ == '__main__':
 
     accuracy = 100 * correct / total
     print(f"Accuracy on the test set: {accuracy}%")
-    torch.save(net.state_dict(), './lenet5_mnist.pth')
+    torch.save(net.state_dict(), './lenet5_mnist_25.pth')
